@@ -3,10 +3,6 @@ package com.controller;
 import com.db.UsersDb;
 import com.google.gson.Gson;
 import com.model.User;
-import com.sun.org.apache.xerces.internal.util.URI;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.ContentType;
-import org.springframework.beans.factory.parsing.Location;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -70,5 +66,11 @@ public class TestController {
         if (user == null)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         return ResponseEntity.status(HttpStatus.OK).header("Content-Type", "application/json").body(new Gson().toJson(user));
+    }
+
+    @RequestMapping(value = "/google-drive-test")
+    public ResponseEntity<String> DriveTest() {
+
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 }
